@@ -136,6 +136,19 @@ img,video,canvas,svg{max-width:100%;max-height:100%;}
 /* paper card with hairline (used for "note"/quiet rows) */
 .hair{border:1.5px solid rgba(10,10,10,.28);}
 
+/* photo-backed card: Unsplash image + accent-color tint so text stays readable */
+.card.photocard{position:relative;overflow:hidden;}
+.card.photocard > .cardbg{position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;
+    object-fit:cover;z-index:0;filter:saturate(.92);}
+.card.photocard::after{content:"";position:absolute;inset:0;z-index:1;}
+.card.photocard > *{position:relative;z-index:2;}
+/* accent tints — darker at bottom (where the text sits) fading up */
+.card.photocard.f-teal::after{background:linear-gradient(180deg,rgba(45,126,115,.35),rgba(45,126,115,.9) 62%,rgba(28,86,78,.96));}
+.card.photocard.f-sienna::after{background:linear-gradient(180deg,rgba(160,106,60,.35),rgba(160,106,60,.9) 62%,rgba(120,76,40,.96));}
+.card.photocard.f-mustard::after{background:linear-gradient(180deg,rgba(216,169,59,.4),rgba(216,169,59,.9) 60%,rgba(196,150,42,.97));}
+.card.photocard.f-blue::after{background:linear-gradient(180deg,rgba(63,115,183,.35),rgba(63,115,183,.9) 62%,rgba(44,86,142,.96));}
+.card.photocard.f-orange::after{background:linear-gradient(180deg,rgba(238,122,46,.4),rgba(238,122,46,.9) 60%,rgba(206,96,26,.97));}
+
 /* ===========================================
    ACTION BAR — mustard callout across top of a slide
    =========================================== */
@@ -535,9 +548,9 @@ img,video,canvas,svg{max-width:100%;max-height:100%;}
         <h2 class="pagehead reveal" style="--d:.05s;">Why data, not vibes</h2>
         <p class="lead reveal" style="--d:.15s;margin-top:20px;">Business is dynamic. Every move is steadier when it's backed by data. You learned this already — I just want to prove it from my own business, not a textbook.</p>
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:38px;height:470px;">
-            <div class="card f-teal reveal" style="--d:.28s;justify-content:flex-end;"><h3 style="margin-top:0;">Understand customers</h3><p>Who buys, what they want, when they come back.</p></div>
-            <div class="card f-sienna reveal" style="--d:.4s;justify-content:flex-end;"><h3 style="margin-top:0;">Sharpen campaigns</h3><p>Spend where it returns; stop where it leaks.</p></div>
-            <div class="card f-mustard reveal" style="--d:.52s;justify-content:flex-end;"><h3 style="margin-top:0;">Move faster</h3><p>Adapt strategy to the market before it's too late.</p></div>
+            <div class="card photocard f-teal reveal" style="--d:.28s;justify-content:flex-end;"><img class="cardbg" src="assets/card-customers.jpg" alt="Customers browsing a retail store" style="object-position:center 40%;"><h3 style="margin-top:0;">Understand customers</h3><p>Who buys, what they want, when they come back.</p></div>
+            <div class="card photocard f-sienna reveal" style="--d:.4s;justify-content:flex-end;"><img class="cardbg" src="assets/card-campaigns.jpg" alt="Analytics dashboard on a laptop" style="object-position:center;"><h3 style="margin-top:0;">Sharpen campaigns</h3><p>Spend where it returns; stop where it leaks.</p></div>
+            <div class="card photocard f-mustard reveal" style="--d:.52s;justify-content:flex-end;"><img class="cardbg" src="assets/card-faster.jpg" alt="Driving forward at dusk, city lights ahead" style="object-position:center 35%;"><h3 style="margin-top:0;">Move faster</h3><p>Adapt strategy to the market before it's too late.</p></div>
         </div>
     </div>
     <div class="footer"><span>15 Jul 2026</span><span>Luthfi Arifin · Guest Lecture</span></div>
@@ -595,7 +608,7 @@ img,video,canvas,svg{max-width:100%;max-height:100%;}
         <div style="flex:1;display:flex;flex-direction:column;">
             <h2 class="pagehead reveal" style="--d:.05s;">Meet Abadikan.id</h2>
             <p class="lead reveal" style="--d:.15s;margin-top:18px;">A digital invitation platform, expanding into gifts &amp; anniversaries. Bootstrapped by me.</p>
-            <div class="arch reveal" style="--d:.3s;margin-top:auto;margin-bottom:24px;">
+            <div class="arch reveal" style="--d:.3s;margin-top:auto;margin-bottom:304px;">
                 <div class="blk f-sienna"><div class="bh">Sources</div><div class="bp">Transactions · ad spend · web sessions</div></div>
                 <div class="arrow">→</div>
                 <div class="blk f-blue"><div class="bh">Data<br>Warehouse</div><div class="bp">One place, cleaned &amp; joined</div></div>
@@ -868,10 +881,10 @@ img,video,canvas,svg{max-width:100%;max-height:100%;}
         <h2 class="pagehead reveal" style="--d:.05s;">What stays valuable</h2>
         <p class="lead reveal" style="--d:.12s;margin-top:16px;">Not "master SQL." These:</p>
         <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:24px;flex:1;min-height:0;">
-            <div class="card f-blue reveal" style="--d:.22s;justify-content:flex-end;"><h3 style="margin-top:0;">Understand the business</h3><p>What question is the data answering?</p></div>
-            <div class="card f-orange reveal" style="--d:.34s;justify-content:flex-end;"><h3 style="margin-top:0;">Ask the right question</h3><p>A good question beats a good answer.</p></div>
-            <div class="card f-mustard reveal" style="--d:.46s;justify-content:flex-end;"><h3 style="margin-top:0;">Judgment + context</h3><p>The part AI still doesn't have.</p></div>
-            <div class="card f-teal reveal" style="--d:.58s;justify-content:flex-end;"><h3 style="margin-top:0;">Data literacy</h3><p>Sanity-check the AI — it can be confidently wrong.</p></div>
+            <div class="card photocard f-blue reveal" style="--d:.22s;justify-content:flex-end;"><img class="cardbg" src="assets/skill-business.jpg" alt="Team planning at a whiteboard of sticky notes" style="object-position:center;"><h3 style="margin-top:0;">Understand the business</h3><p>What question is the data answering?</p></div>
+            <div class="card photocard f-orange reveal" style="--d:.34s;justify-content:flex-end;"><img class="cardbg" src="assets/skill-question.jpg" alt="Speaker and audience in a seminar room" style="object-position:center 35%;"><h3 style="margin-top:0;">Ask the right question</h3><p>A good question beats a good answer.</p></div>
+            <div class="card photocard f-mustard reveal" style="--d:.46s;justify-content:flex-end;"><img class="cardbg" src="assets/skill-judgment.jpg" alt="Chess board with one dark pawn among light pieces" style="object-position:center 40%;"><h3 style="margin-top:0;">Judgment + context</h3><p>The part AI still doesn't have.</p></div>
+            <div class="card photocard f-teal reveal" style="--d:.58s;justify-content:flex-end;"><img class="cardbg" src="assets/skill-literacy.jpg" alt="Analytics dashboard full of charts" style="object-position:center;"><h3 style="margin-top:0;">Data literacy</h3><p>Sanity-check the AI — it can be confidently wrong.</p></div>
         </div>
         <p class="note reveal" style="--d:.7s;margin-top:16px;font-size:25px;letter-spacing:.04em;">AI won't replace you — but a person using AI will replace someone who doesn't.</p>
     </div>
